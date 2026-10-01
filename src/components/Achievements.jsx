@@ -14,8 +14,6 @@ export default function Achievements({ theme }) {
         'Consistently refined code execution benchmarks and space-complexity trade-offs',
         'Demonstrated disciplined daily problem-solving regimen',
       ],
-      linkText: 'View LeetCode Profile',
-      linkUrl: 'https://leetcode.com',
     },
     {
       title: 'EASA College Hackathon – AI Innovation',
@@ -31,8 +29,6 @@ export default function Achievements({ theme }) {
         'Integrated machine learning endpoints with a responsive frontend dashboard within 24 hours',
         'Pitched architecture and live demonstration to an expert industry evaluation panel',
       ],
-      linkText: 'Project Repository',
-      linkUrl: 'https://github.com',
     },
     {
       title: 'Engineering Academic Distinction',
@@ -48,8 +44,6 @@ export default function Achievements({ theme }) {
         'Applied theoretical computing concepts directly to production-grade applications',
         'Active member of department technical symposiums and peer coding circles',
       ],
-      linkText: 'Verified Credential',
-      linkUrl: '#about',
     },
   ]
 
@@ -77,7 +71,7 @@ export default function Achievements({ theme }) {
           {achievements.map((item, index) => (
             <div
               key={index}
-              className="glass-card p-8 group flex flex-col justify-between relative overflow-hidden reveal-up hover:scale-[1.02] transition-all duration-300"
+              className="glass-card p-8 group flex flex-col relative overflow-hidden reveal-up hover:scale-[1.02] transition-all duration-300"
               data-delay={index * 150}
             >
               {/* Top ambient color bar */}
@@ -117,7 +111,7 @@ export default function Achievements({ theme }) {
                 </p>
 
                 {/* Bullet details */}
-                <div className="space-y-2 mb-6">
+                <div className="space-y-2">
                   {item.details.map((d, i) => (
                     <div key={i} className="flex items-start gap-2 text-xs">
                       <span className="text-accent-cyan font-bold mt-0.5">✓</span>
@@ -127,23 +121,6 @@ export default function Achievements({ theme }) {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              {/* Action link */}
-              <div className="pt-4 border-t border-white/[0.08] dark:border-white/[0.08]">
-                <a
-                  href={item.linkUrl}
-                  target={item.linkUrl.startsWith('http') ? '_blank' : '_self'}
-                  rel="noreferrer"
-                  className={`text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
-                    theme === 'dark' ? 'text-primary-400 hover:text-primary-300' : 'text-primary-600 hover:text-primary-700'
-                  }`}
-                >
-                  <span>{item.linkText}</span>
-                  <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
               </div>
             </div>
           ))}
