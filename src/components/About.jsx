@@ -1,55 +1,4 @@
-import { useState } from 'react'
-
 export default function About({ theme }) {
-  const [downloadStatus, setDownloadStatus] = useState('idle') // 'idle' | 'downloading' | 'completed'
-
-  const handleDownloadResume = () => {
-    setDownloadStatus('downloading')
-    setTimeout(() => {
-      // Create a mock download or real resume blob
-      const resumeContent = `SHYAM G V - RESUME
-Email: shyam192837465@gmail.com | Phone: +91-971528201
-Portfolio: https://shyamgv.dev | India
-
-SUMMARY:
-Computer Science Engineering student with hands-on experience in web development, Python, JavaScript, REST APIs, problem-solving, with experience building practical software and AI-powered projects. Familiar with developing user-friendly web applications, integrating frontend and backend components, working with databases, debugging applications, and following software development best practices.
-
-EDUCATION:
-• Sri Shakthi Institute of Engineering and Technology
-  Bachelor of Engineering in Computer Science and Engineering | CGPA: 7.72
-• K V Matric Higher Secondary School
-  Higher Education - CBSE: 79.5%
-  Primary & Secondary Education - CBSE: 81.6%
-
-TECHNICAL SKILLS:
-• Frontend: HTML5, CSS3, JavaScript, React.js, Responsive Web Design, DOM, UI/UX Implementation, Tailwind CSS
-• Backend: Python, FastAPI, Node.js, Express.js, REST APIs, API Integration, CRUD Operations
-• Web & AI: API Integration, Hugging Face LLM API Integration, Web Applications, Frontend-Backend Integration
-• Programming: Python, OOP, Data Structures & Algorithms, Problem Solving, Debugging
-• Databases: SQL, MySQL, MongoDB, Firebase Firestore, Supabase, Database Design
-• Tools: Git, GitHub, VS Code, Postman, Vite, Antigravity
-
-EXPERIENCE & PROJECTS:
-• Saranya Dental Clinic Web Platform:
-  Full-stack appointment booking platform with real-time Firebase Firestore, FCM Push Notifications, and Netlify deployment.
-• Mock AI – AI-Powered Mock Testing & Student Assessment Platform:
-  RBAC examination system with Hugging Face LLM-based MCQ generation, Flask microservices, JWT authentication, and Chart.js analytics.
-`
-      const blob = new Blob([resumeContent], { type: 'text/plain' })
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = 'Shyam_GV_Resume.txt'
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(url)
-
-      setDownloadStatus('completed')
-      setTimeout(() => setDownloadStatus('idle'), 3000)
-    }, 900)
-  }
-
   const educationList = [
     {
       degree: 'Bachelor of Engineering in Computer Science & Engineering',
@@ -157,35 +106,21 @@ EXPERIENCE & PROJECTS:
 
             {/* Resume CTA Button */}
             <div className="flex flex-wrap items-center gap-4">
-              <button
-                onClick={handleDownloadResume}
-                disabled={downloadStatus === 'downloading'}
+              <a
+                href="/Shyam.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="magnetic-btn text-white group cursor-pointer"
               >
-                {downloadStatus === 'downloading' ? (
-                  <>
-                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                    </svg>
-                    <span>Preparing Resume...</span>
-                  </>
-                ) : downloadStatus === 'completed' ? (
-                  <>
-                    <svg className="w-4 h-4 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Resume Downloaded!</span>
-                  </>
-                ) : (
-                  <>
-                    <svg className="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    <span>Download Formal Resume</span>
-                  </>
-                )}
-              </button>
+                <svg className="w-4 h-4 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <span>View Resume</span>
+                <svg className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
 
               <a
                 href="#contact"
