@@ -9,6 +9,38 @@ const projectCategories = [
 
 const projectsData = [
   {
+    id: 'saranya-dental',
+    title: 'Saranya Dental Clinic Web Platform',
+    category: ['fullstack', 'web'],
+    badge: 'Production Client',
+    tagline: 'Real-time patient appointment booking & FCM push notifications',
+    imageGradient: 'from-cyan-600 via-teal-600 to-emerald-800',
+    icon: '🦷',
+    techStack: [
+      'JavaScript',
+      'Node.js',
+      'Firebase Firestore',
+      'Firebase Cloud Messaging (FCM)',
+      'Vercel',
+      'Tailwind CSS',
+      'REST APIs',
+    ],
+    description:
+      'Full-stack patient booking platform processing real-time clinic appointments with automated push notifications directly to administrative devices. Deployed on serverless cloud architecture with high-converting responsive design.',
+    highlights: [
+      'Engineered and deployed a full-stack booking system using JavaScript, Node.js, and Firebase Firestore for zero-latency patient updates.',
+      'Integrated Firebase Cloud Messaging (FCM) to trigger automated push notifications to clinic staff upon appointment reservation.',
+      'Architected a serverless deployment pipeline on Vercel resulting in 99.9% uptime and lightning-fast worldwide TTFB.',
+      'Designed responsive UI with intuitive mobile date-time pickers, interactive confirmation states, and appointment management dashboards.',
+    ],
+    demoUrl: 'https://sdc-pied-iota.vercel.app/',
+    metrics: [
+      { label: 'Cloud Uptime', value: '99.9%' },
+      { label: 'Alert Dispatch', value: 'Instant' },
+      { label: 'Stack', value: 'Serverless' },
+    ],
+  },
+  {
     id: 'mock-ai',
     title: 'Mock AI – AI-Powered Examination & Assessment Platform',
     category: ['fullstack', 'ai'],
@@ -35,45 +67,10 @@ const projectsData = [
       'Implemented bank-grade authentication with JWT tokens and bcrypt password hashing over Express.js RESTful routes.',
       'Visualized multi-dimensional student performance metrics (department, year, and individual) via custom interactive Chart.js dashboards.',
     ],
-    githubUrl: 'https://github.com/shyamgv/mock-ai-assessment',
-    demoUrl: 'https://mock-ai-platform.demo.dev',
     metrics: [
       { label: 'MCQ Generation', value: '< 2.5s' },
       { label: 'Security', value: 'JWT + RBAC' },
       { label: 'Analytics', value: 'Chart.js' },
-    ],
-  },
-  {
-    id: 'saranya-dental',
-    title: 'Saranya Dental Clinic Web Platform',
-    category: ['fullstack', 'web'],
-    badge: 'Production Client',
-    tagline: 'Real-time patient appointment booking & FCM push notifications',
-    imageGradient: 'from-cyan-600 via-teal-600 to-emerald-800',
-    icon: '🦷',
-    techStack: [
-      'JavaScript',
-      'Node.js',
-      'Firebase Firestore',
-      'Firebase Cloud Messaging (FCM)',
-      'Netlify',
-      'Tailwind CSS',
-      'REST APIs',
-    ],
-    description:
-      'Full-stack patient booking platform processing real-time clinic appointments with automated push notifications directly to administrative devices. Deployed on serverless cloud architecture with high-converting responsive design.',
-    highlights: [
-      'Engineered and deployed a full-stack booking system using JavaScript, Node.js, and Firebase Firestore for zero-latency patient updates.',
-      'Integrated Firebase Cloud Messaging (FCM) to trigger automated push notifications to clinic staff upon appointment reservation.',
-      'Architected a serverless deployment pipeline on Netlify resulting in 99.9% uptime and lightning-fast worldwide TTFB.',
-      'Designed responsive UI with intuitive mobile date-time pickers, interactive confirmation states, and appointment management dashboards.',
-    ],
-    githubUrl: 'https://github.com/shyamgv/saranya-dental-clinic',
-    demoUrl: 'https://saranyadental.netlify.app',
-    metrics: [
-      { label: 'Cloud Uptime', value: '99.9%' },
-      { label: 'Alert Dispatch', value: 'Instant' },
-      { label: 'Stack', value: 'Serverless' },
     ],
   },
   {
@@ -101,8 +98,6 @@ const projectsData = [
       'Created an interactive web console allowing users to inspect forensic heatmaps, confidence intervals, and metadata authenticity.',
       'Applied robust error handling and file validation to process high-resolution media seamlessly.',
     ],
-    githubUrl: 'https://github.com/Vishak-007/AI-ForenSight_',
-    demoUrl: 'https://ai-forensight.demo.dev',
     metrics: [
       { label: 'Accuracy', value: '94.2%' },
       { label: 'Inference', value: 'Async GPU' },
@@ -133,8 +128,6 @@ const projectsData = [
       'Implemented optimistic UI updates ensuring zero perceived latency during active editing sessions.',
       'Built fully typed API interfaces in TypeScript to prevent runtime data mismatches.',
     ],
-    githubUrl: 'https://github.com/shyamgv/supabase-realtime-app',
-    demoUrl: 'https://supabase-realtime.demo.dev',
     metrics: [
       { label: 'Latency', value: '< 50ms' },
       { label: 'Security', value: 'Postgres RLS' },
@@ -287,35 +280,27 @@ export default function Projects({ theme }) {
 
                   <div className="flex items-center justify-between pt-4 border-t border-white/[0.08] dark:border-white/[0.08]">
                     <div className="flex items-center gap-3">
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className={`text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
-                          theme === 'dark' ? 'text-white/70 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-                        }`}
-                      >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                        </svg>
-                        <span>Code</span>
-                      </a>
-
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className={`text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
-                          theme === 'dark' ? 'text-primary-400 hover:text-primary-300' : 'text-primary-600 hover:text-primary-700'
-                        }`}
-                      >
-                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                        <span>Live Preview</span>
-                      </a>
+                      {project.demoUrl ? (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className={`text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
+                            theme === 'dark' ? 'text-primary-400 hover:text-primary-300' : 'text-primary-600 hover:text-primary-700'
+                          }`}
+                        >
+                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                          <span>Live Preview</span>
+                        </a>
+                      ) : (
+                        <span className={`text-xs font-mono flex items-center gap-1.5 ${theme === 'dark' ? 'text-white/40' : 'text-gray-400'}`}>
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary-400/60" />
+                          <span>Architecture & Deep Dive</span>
+                        </span>
+                      )}
                     </div>
 
                     <span className="text-xs font-mono text-primary-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
@@ -417,30 +402,34 @@ export default function Projects({ theme }) {
             </div>
 
             {/* Links */}
-            <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/[0.08] dark:border-white/[0.08]">
-              <a
-                href={selectedProject.demoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="magnetic-btn text-white"
-              >
-                <span>Open Live Project</span>
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/[0.08] dark:border-white/[0.08]">
+              {selectedProject.demoUrl ? (
+                <a
+                  href={selectedProject.demoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="magnetic-btn text-white"
+                >
+                  <span>Open Live Project</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
+                  <span className={`text-xs font-mono ${theme === 'dark' ? 'text-white/60' : 'text-gray-500'}`}>
+                    Verified Architecture & Technical Specifications
+                  </span>
+                </div>
+              )}
 
-              <a
-                href={selectedProject.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="ghost-btn"
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="ghost-btn text-xs py-2.5 px-5 cursor-pointer"
               >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                </svg>
-                <span>GitHub Repository</span>
-              </a>
+                Close Details
+              </button>
             </div>
           </div>
         </div>
